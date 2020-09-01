@@ -13,7 +13,7 @@ const setUser = user =>
 
 export async function handleLogin(user, pswd){
     let res = axios.post(
-        "http://localhost:8000/php/handleLogin.php",
+        "http://giuseppegalvagno.altervista.org/php/handleLogin.php",
         qs.stringify({username: user, password: pswd}),
     ).then(response => {
         let tmp = response.data.split("-");
@@ -29,7 +29,7 @@ export async function handleLogin(user, pswd){
 
 export async function isLoggedIn(){
     let res = axios.post(
-        "http://localhost:8000/php/isLogged.php",
+        "http://giuseppegalvagno.altervista.org/php/isLogged.php",
         qs.stringify({session: localStorage.getItem("login")}),
     ).then(response => {
         console.log(response.data);

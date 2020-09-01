@@ -1,0 +1,60 @@
+.forma {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background-color: hsla(0, 0%, 0%, 0.75);
+    z-index:-1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.over-all{
+    padding : 3%;
+    margin-top: -1px;
+}
+.iubenda-embed{
+    color: #5AA5D6;
+    transition: color 0.3s;
+    margin-left: 10px;
+}
+.form-group{
+    display: flex;
+    flex-flow: column;
+}
+.privacy{
+    flex-flow: row;
+    align-items: center;
+}
+.btn{
+    border: none;
+    font-size: 1.5rem;
+}
+
+.react-datepicker__day--today{
+    background-color: #fff;
+    font-weight: normal;
+    color: #000;
+}
+.react-datepicker__day--selected{
+    background-color: #216ba5;
+    color: #fff;
+}
+
+
+@media (min-width: 576px) {
+}
+
+@media (min-width: 768px) {
+
+}
+
+@media (min-width: 992px) {
+
+}
+
+
+@media (min-width: 1200px) {
+
+}

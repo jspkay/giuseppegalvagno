@@ -9,12 +9,13 @@ import useAxios from "axios-hooks";
 const qs = require("qs");
 
 const Admin = () => {
+    let localStorage = typeof(window) !== "undefined" ? window.localStorage : {getItem: () => {}};
     let login = localStorage.getItem("login");
     let unauthorizedLogin = <p>You don't have the permission to see this page!</p>;
 
     console.log(login);
     let [axios, refetch] = useAxios({
-        url: "http://localhost:8000/php/isLogged.php",
+        url: "http://giuseppegalvagno.altervista.org/php/isLogged.php",
         method: "POST",
         data: qs.stringify({session: localStorage.getItem("login")})} );
     if(axios.loading) return <p>Checking login...</p>

@@ -1,0 +1,26 @@
+/*
+Colors:
+    primary: 2d4059,
+    secondary: ea5455
+    tertiary: decdc3
+    quaternary:ve5e5e5
+    lastly: ffffff
+ */
+
+.bg-primary{
+    background-color: #2d4059 !important;
+    color: #fff;
+}
+
+.bg-secondary{
+    background: #ea5455;
+}
+
+.bg-tertiary{
+    background: #ea5455;
+    color: #ffffff;
+}
+
+.bg-quaternary{
+    background: #e5e5e5;
+}

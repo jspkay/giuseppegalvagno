@@ -42,7 +42,7 @@ let Prenotazioni = ({children, ...props}) => {
         operationAlert: null,
         calendarState: {
             view: "giornaliera",
-            date: "2020-08-29",
+            date: Date(),
             startDayHour: 8,
             endDayHour: 20,
         }
@@ -57,7 +57,7 @@ let Prenotazioni = ({children, ...props}) => {
     state.prenotazioni = [];
     let [axios, refetch] = useAxios(
         {
-            url: "http://giuseppegalvagno.altervista.org/gestisciPrenotazioni.php?tuttePrenotazioni",
+            url: "http://giuseppegalvagno.altervista.org/php/gestisciPrenotazioni.php?tuttePrenotazioni",
             method: "GET",
         });
     if(axios.loading) return <Button>Caricamento</Button>;

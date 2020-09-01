@@ -1,4 +1,4 @@
-import React, {useContext, useState} from "react";
+import React, {useContext} from "react";
 import Paper from '@material-ui/core/Paper';
 
 import {EditingState, IntegratedEditing, ViewState} from '@devexpress/dx-react-scheduler';
@@ -14,17 +14,25 @@ import {
     Toolbar, ViewSwitcher, MonthView, WeekView, Resources
 } from '@devexpress/dx-react-scheduler-material-ui';
 
-import useAxios from "axios-hooks";
-import Button from "@material-ui/core/Button";
+import "./calendario.css";
+
 import moment from "moment";
 
 import {tipiPrestazione, durataPrestazioni} from "../helpers/tipiPrestazioni";
 import sovrapposizione from "../helpers/sovrapposizione";
-import Prenotazioni, {PrenotazioniContext} from "./Prenotazioni";
+import {PrenotazioniContext} from "./Prenotazioni";
 
 const axios = require("axios");
 
-let Calendario = (props) => {
+let BooleanEditors = (props) => {
+    return(
+    <AppointmentForm.BooleanEditor className={"invisible"} >
+
+    </AppointmentForm.BooleanEditor>
+    );
+}
+
+let Calendario = () => {
     let [context, changeCalendarState] = useContext(PrenotazioniContext);
     let state = {
         prenotazioni: context.prenotazioni,
@@ -58,7 +66,7 @@ let Calendario = (props) => {
     }
     function aggiornaPrenotazioni({added, changed, deleted}) {
         console.log(added);
-        let url = "http://giuseppegalvagno.altervista.org/gestisciPrenotazioni.php?";
+        let url = "http://giuseppegalvagno.altervista.org/php/gestisciPrenotazioni.php?";
 
         if(changed){
             url = url+"modifica";
@@ -172,7 +180,8 @@ let Calendario = (props) => {
             <Scheduler data={state.prenotazioni} >
 
                 <ViewState
-                    onCurrentDateChange={(date) => {changeCalendarState({date: date, ...calendarState});}}
+                    onCurrentDateChange={(date) => {
+                        changeCalendarState({...calendarState, date:date});}}
                     currentDate={calendarState.date}
                     defaultCurrentDate={Date.now()}
                     currentViewName={calendarState.view}
@@ -215,7 +224,7 @@ let Calendario = (props) => {
                 <ConfirmationDialog />
                 <Appointments />
                 <AppointmentTooltip showOpenButton showCloseButton showDeleteButton/>
-                <AppointmentForm />
+                <AppointmentForm commitCommand={"Salva"} booleanEditorComponent={BooleanEditors} />
                 <Resources data={resources} mainResourceName={"tipo"}/>
                 <DragDropProvider allowResize={() => false} />
             </Scheduler>
