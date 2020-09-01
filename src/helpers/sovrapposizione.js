@@ -7,7 +7,7 @@ export default function sovrapposizione(exclude, data, tipo, prenotazioni){
 
     let startDate = moment(data);
     let endDate = moment(data);
-    endDate.add(60, "m");
+    endDate.add(durataPrestazioni[tipiPrestazione[tipo]], "m");
 
     console.log("StartDate: " + startDate.toDate());
     console.log("EndDate: " + endDate.toDate());
